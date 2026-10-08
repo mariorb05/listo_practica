@@ -7,3 +7,4 @@
 - `git diff`: loque has cambiado y aún no has preparado
 - ``git diff --staged`: lo que ya esta preparado
 - `git log --oneline`: el historial, un commit por línea
+- `git commit -am "mensaje"`: add y commit de lo ya seguido
