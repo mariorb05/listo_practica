@@ -1,4 +1,3 @@
-
 from flask import render_template
 
 from app.features.home import home_bp
