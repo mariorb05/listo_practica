@@ -2,12 +2,14 @@
 const formulario = document.getElementById("tarea");
 const campoTitulo = document.getElementById("title");
 const contador = document.getElementById("contador");
+const vistaPrevia = document.getElementById("vista-previa");
 const maximo = 120;
 
 function actualizarContador() {
   const largo = campoTitulo.value.length;
   contador.textContent = `${largo}/${maximo}`;
   contador.classList.toggle("contador-pasado", largo > maximo);
+  vistaPrevia.textContent = campoTitulo.value;
 }
 
 actualizarContador();
