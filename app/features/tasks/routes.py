@@ -15,6 +15,17 @@ def index():
     )
 
 
+@tasks_bp.route("/stats")
+@login_required
+def stats():
+    pending_tasks = [task for task in services.list_tasks(current_user) if not task.done]
+    return render_template(
+        "tasks/stats.html",
+        stats=services.task_stats(current_user),
+        pending_tasks=pending_tasks,
+    )
+
+
 @tasks_bp.route("/count")
 @login_required
 def count():
@@ -38,8 +49,8 @@ def count():
 def create():
     form = TaskForm()
     if form.validate_on_submit():
-        services.create_task(current_user, form.title.data, form.description.data)
-        flash("Tarea creada.", "success")
+        task = services.create_task(current_user, form.title.data, form.description.data)
+        flash(f"Tarea creada: «{task.title}».", "success")
         return redirect(url_for("tasks.index"))
     return render_template("tasks/form.html", form=form, title="Nueva tarea")
 
