@@ -14,12 +14,11 @@ def index():
         "tasks/index.html", tasks=tasks, pending=pending, done=len(tasks) - pending
     )
 
+
 @tasks_bp.route("/stats")
 @login_required
 def stats():
-    pending_tasks = [
-        task for task in services.list_tasks(current_user) if not task.done
-    ]
+    pending_tasks = [task for task in services.list_tasks(current_user) if not task.done]
     return render_template(
         "tasks/stats.html",
         stats=services.task_stats(current_user),

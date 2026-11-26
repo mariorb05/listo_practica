@@ -4,7 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import BooleanField, EmailField, PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 
-DNI_LETTERS = "TRWAGMYFPDXBNJZSQVHLCKE" # la letra es la del resto de dividir entre 23
+DNI_LETTERS = "TRWAGMYFPDXBNJZSQVHLCKE"  # la letra es la del resto de dividir entre 23
 
 
 class RegisterForm(FlaskForm):
@@ -33,6 +33,7 @@ class RegisterForm(FlaskForm):
         if DNI_LETTERS[int(dni[:8]) % 23] != dni[8]:
             raise ValidationError("La letra del DNI no es correcta.")
 
+
 class LoginForm(FlaskForm):
     class Meta:
         locales = ["es"]
@@ -41,5 +42,3 @@ class LoginForm(FlaskForm):
     password = PasswordField("Contraseña", validators=[DataRequired()])
     remember = BooleanField("Recordarme")
     submit = SubmitField("Entrar")
-
-

@@ -33,6 +33,7 @@ def task_stats(user):
         "percent": percent,
     }
 
+
 def get_task(user, task_id):
     """Una tarea concreta del usuario, o None si no existe o pertenece a otra persona."""
     task = db.session.get(Task, task_id)
