@@ -1,7 +1,8 @@
+import re
+
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, EmailField, PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
-import re
 
 DNI_LETTERS = "TRWAGMYFPDXBNJZSQVHLCKE" # la letra es la del resto de dividir entre 23
 

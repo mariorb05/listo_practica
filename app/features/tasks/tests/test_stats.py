@@ -38,3 +38,4 @@ def test_api_stats(logged_client, user):
     assert response.status_code == 200
     assert response.content_type == "application/json"
     assert response.get_json() == {"total": 2, "done": 1, "pending": 1, "percent": 50}
+
